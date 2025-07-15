@@ -1,0 +1,47 @@
+# STS / Eclipse specific
+/.classpath
+/.project
+/.settings/
+/.apt_generated
+.factorypath
+.metadata
+
+# Maven build directory
+/target/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IntelliJ (in case someone uses it)
+*.iml
+.idea/
+*.iws
+*.ipr
+out/
+
+# Java-related
+*.class
+
+# Environment files
+.env
+
+# Node modules (if using frontend in the same repo)
+node_modules/
+
+# VS Code
+.vscode/
+
+# Test reports
+/test-output/
+
+# Mac system file
+__MACOSX
+
+# Local .jar or .war builds
+*.jar
+*.war
+
