@@ -26,4 +26,35 @@ public class GlobalExceptionHandler {
 		
 		return new ResponseEntity<>(errorResponseDto,HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler({CustomerDetailsNotFoundException.class , AccountDetailsNotFoundException.class})
+	public ResponseEntity<ErrorResponseDto> handCustomerDetailsNotFoundException(CustomerDetailsNotFoundException exception,WebRequest webRequest){
+		
+		
+		ErrorResponseDto errorResponseDto = new ErrorResponseDto(
+				webRequest.getDescription(false), 
+				HttpStatus.NOT_FOUND, 
+				exception.getMessage(), 
+				LocalDateTime.now()
+				);
+		
+		return new ResponseEntity<>(errorResponseDto,HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler({ResourceNotFoundException.class})
+	public ResponseEntity<ErrorResponseDto> handResourceNotFoundException(ResourceNotFoundException exception,WebRequest webRequest){
+		
+		
+		ErrorResponseDto errorResponseDto = new ErrorResponseDto(
+				webRequest.getDescription(false), 
+				HttpStatus.NOT_FOUND, 
+				exception.getMessage(), 
+				LocalDateTime.now()
+				);
+		
+		return new ResponseEntity<>(errorResponseDto,HttpStatus.NOT_FOUND);
+	}
+	
+	
+	
 }
