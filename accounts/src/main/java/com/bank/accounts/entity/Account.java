@@ -12,7 +12,7 @@ import lombok.ToString;
 @Entity
 @Getter @Setter @ToString 
 @AllArgsConstructor @NoArgsConstructor
-public class Accounts extends BaseEntity{
+public class Account extends BaseEntity{
 
 
 	private Long customerId;
