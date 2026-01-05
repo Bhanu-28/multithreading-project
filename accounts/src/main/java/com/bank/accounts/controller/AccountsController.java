@@ -1,7 +1,6 @@
 package com.bank.accounts.controller;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -44,7 +43,7 @@ public class AccountsController {
 	
 	@GetMapping("/fetchAccountDetails")
 	public AccountDto fetchAccountDetails(@RequestParam 
-			@Pattern(message = "Account Number Must be 10 digits", regexp = "(^$|[0-9](10))")
+			@Pattern(message = "Account Number Must be 10 digits", regexp = "^[0-9]{10}$")
 			Long accountNumber) {
 			
 		return	iAccountsService.fetchAccountDetails(accountNumber);
@@ -54,7 +53,7 @@ public class AccountsController {
 	@GetMapping("/fetchCustomerDetails")
 	public CustomerDto fetchCustomerDetails(@RequestParam 
 			
-			@Pattern(message = "Mobile Number Must be 10 digits", regexp = "(^$|[0-9](10))")
+			@Pattern(message = "Mobile Number Must be 10 digits", regexp = "^[0-9]{10}$")
 			String mobileNumber) {
 			
 		return	iAccountsService.fetchCustomerDetails(mobileNumber);
@@ -64,7 +63,7 @@ public class AccountsController {
 	@GetMapping("/fetchCustomerInfoDetails")
 	public ResponseEntity<CustomerDto> fetchCustomerInfoDetails(@RequestParam 
 			
-			@Pattern(message = "Mobile Number Must be 10 digits", regexp = "(^$|[0-9](10))")
+			@Pattern(message = "Mobile Number Must be 10 digits", regexp = "^[0-9]{10}$")
 			String mobileNumber) {
 			
 			CustomerDto customerDto = iAccountsService.fetchCustomerInfoDetails(mobileNumber);
@@ -92,7 +91,7 @@ public class AccountsController {
 	
 	@DeleteMapping("/deleteAccount")
 	public ResponseEntity<ResponseDto> deleteAccount(@RequestParam 
-			@Pattern(message = "Mobile Number Must be 10 digits", regexp = "(^$|[0-9](10))")
+			@Pattern(message = "Mobile Number Must be 10 digits", regexp = "^[0-9]{10}$")
 			String mobileNumber){
 		
 		boolean isDeleted = iAccountsService.deleteAccount(mobileNumber);
