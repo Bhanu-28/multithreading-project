@@ -17,6 +17,7 @@ public class AccountsConstants {
 	public static final String MESSAGE_500 = "An Error Occured Please try again or Contact Dev Team";
 	public static final String STATUS_417 = "417";
 	public static final String MESSAGE_417 = "Update operation failed. Please try again or contact Dev team";
+	public static final String MESSAGE_417_DELETE = "Delete operation failed. Please try again or contact Dev team";
 	public static final String SAVINGS = "Savings";
 	public static final String BRANCH_ADDRESS = "123 street Nagaralu Guntur";
 }
