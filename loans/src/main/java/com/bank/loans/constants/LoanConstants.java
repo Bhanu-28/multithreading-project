@@ -29,9 +29,9 @@ public class LoanConstants {
 	
 	public static final String PERSONAL_LOAN = "Personal Loan";
 	
-	public static final Long TOTAL_LOAN = 100000L;
+	public static final int  TOTAL_LOAN = 100000;
 	
-	public static final Long AMOUNT_PAID = 0L;
+	public static final int AMOUNT_PAID = 0;
 	
 
 

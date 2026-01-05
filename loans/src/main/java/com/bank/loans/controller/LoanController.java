@@ -13,13 +13,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bank.loans.constants.LoanConstants;
+import com.bank.loans.dto.ErrorResponseDto;
 import com.bank.loans.dto.LoanDto;
 import com.bank.loans.dto.ResponseDto;
 import com.bank.loans.services.ILoansService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
-
+@Tag(name = "CRUD REST API's for loans in Yolo Bank",
+	 description = "CRUD REST APIs in YoloBank to CREATE, UPDATE, FETCH AND DELETE loan details"
+	)
 @Controller
 @RestController
 @RequestMapping(path = "/api/",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -28,6 +37,18 @@ public class LoanController {
 
 	private ILoansService iLoansService;
 	
+	@Operation(summary = "create Loan Rest API",
+			   description = "Rest API to create loan inside YoloBank"	
+			)
+	@ApiResponses({
+		@ApiResponse(responseCode = "201",
+				description = "Http Status Created Successfully"),
+		@ApiResponse(responseCode = "500",
+		description = "Internal Server error",
+		content = @Content(
+				schema = @Schema(implementation = ErrorResponseDto.class)
+				))
+	})
 	@GetMapping("/createLoan")
 	public ResponseEntity<ResponseDto> createLoan(@RequestParam String mobileNumber) {
 		
@@ -39,6 +60,18 @@ public class LoanController {
 		
 	}
 	
+	
+	@Operation(summary = "Fetch Loan Rest API",
+			   description = "Rest API to Fetch loan inside YoloBank"	
+			)
+	@ApiResponses({
+		@ApiResponse(responseCode = "200",
+				description = "Http Status OK"),
+		@ApiResponse(responseCode = "500",
+		description = "Internal Server error",
+		content = @Content(
+			schema = @Schema(implementation = ErrorResponseDto.class)))
+	})
 	@GetMapping("/fetchLoan")
 	public ResponseEntity<LoanDto> fetchLoanDetails(@RequestParam String mobileNumber){
 		
@@ -49,6 +82,22 @@ public class LoanController {
 				.status(HttpStatus.OK)
 				.body(loanDto);
 	}
+	
+	@Operation(summary = "Update Loan Rest API",
+			   description = "Rest API to Update loan inside YoloBank"	
+			)
+	@ApiResponses({
+		@ApiResponse(responseCode = "200",
+				description = "Http Status OK"),
+		@ApiResponse(responseCode = "417",
+		description = "Expectation Failed"),
+		@ApiResponse(responseCode = "500",
+					description = "Internal Server error",
+					content = @Content(
+							schema = @Schema(implementation = ErrorResponseDto.class)
+										)
+							)
+				})
 	
 	@PutMapping("/updateLoan")
 	public ResponseEntity<ResponseDto>  updateLoanDetails(@RequestBody LoanDto loanDto){
@@ -67,6 +116,22 @@ public class LoanController {
 		
 	}
 	
+	
+	@Operation(summary = "Delete Loan Rest API",
+			   description = "Rest API to Delete loan inside YoloBank"	
+			)
+	@ApiResponses({
+		@ApiResponse(responseCode = "200",
+				description = "Http Status OK"),
+		@ApiResponse(responseCode = "417",
+		description = "Expectation Failed"),
+		@ApiResponse(responseCode = "500",
+					description = "Internal Server error",
+					content = @Content(
+							schema = @Schema(implementation = ErrorResponseDto.class)
+										)
+							)
+				})
 	
 	@DeleteMapping("/deleteloan")
 	public ResponseEntity<ResponseDto> deleteLoan(@RequestParam String mobileNumber){

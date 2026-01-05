@@ -1,6 +1,5 @@
 package com.bank.loans.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,12 +22,12 @@ public class Loan extends BaseEnity{
 	
 	private String loanType;
 	
-	private Long totalLoan;
+	private int totalLoan;
 	
-	private Long amountPaid;
+	private int amountPaid;
 	
 //	@Column(name = "outstanding_amount")
-	private Long outstandingAmount;
+	private int outstandingAmount;
 	
 
 }
