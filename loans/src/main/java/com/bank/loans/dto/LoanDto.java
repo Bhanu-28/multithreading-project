@@ -14,17 +14,17 @@ description = "Schema to hold Loan information"
 public class LoanDto {
 	
 	@NotEmpty(message = "Mobile Number can not be a null or empty")
-    @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits")
+    @Pattern(regexp="(^[0-9]{10}$)",message = "Mobile Number must be 10 digits")
 	@Schema(
 			description = "mobile Number Linked to loan account",
 			example = "1234567890" 
-//			^[0-9]{10}$
+//			
 		)
 	private String mobileNumber;
 	
 	
 	@NotEmpty(message = "Loan Number can not be a null or empty")
-    @Pattern(regexp="(^$|[0-9]{12})",message = "Loan Number must be 12 digits")
+    @Pattern(regexp="(^[0-9]{12}$)",message = "Loan Number must be 12 digits")
 	@Schema(
 			description = "mobile Number Linked to loan account",
 			example = "108069789467"
