@@ -88,7 +88,7 @@ public class LoanServiceImpl implements ILoansService{
 	@Override
 	public boolean updateLoanDetails(LoanDto loanDto) {
 		boolean isUpdated = false;
-		Loan loan = iLoanRepository.findByMobileNumber(loanDto.getLoanNumber()).orElseThrow(
+		Loan loan = iLoanRepository.findByLoanNumber(loanDto.getLoanNumber()).orElseThrow(
 				() -> new ResourceNotFoundException("loan","Loan Number",loanDto.getLoanNumber()
 						));
 		

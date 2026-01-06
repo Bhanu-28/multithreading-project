@@ -11,5 +11,7 @@ import com.bank.loans.entity.Loan;
 public interface ILoanRepository extends JpaRepository<Loan, Long>{
 	
 	Optional<Loan> findByMobileNumber(String mobileNumber);
+	
+	Optional<Loan> findByLoanNumber(String loanNumber);
 
 }
