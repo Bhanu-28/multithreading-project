@@ -35,7 +35,7 @@ import lombok.AllArgsConstructor;
 @Controller
 @RestController
 @Validated
-@RequestMapping(path = "/api/",produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/loan/",produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
 public class LoanController {
 
