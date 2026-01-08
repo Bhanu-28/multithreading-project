@@ -185,15 +185,15 @@ Typical dependencies being used right now:
 ```
 server:
 
-port: 8080
+  port: 8080
 
 spring:
 
-datasource:
+  datasource:
 
-url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:testdb
 
-driver-class-name: org.h2.Driver
+    driver-class-name: org.h2.Driver
 
 username: sa
 
