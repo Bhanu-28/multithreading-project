@@ -5,6 +5,8 @@
 /.apt_generated
 .factorypath
 .metadata
+mvnw
+.mvn/
 
 # Maven build directory
 /target/
