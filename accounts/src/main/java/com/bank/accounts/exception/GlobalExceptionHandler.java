@@ -47,7 +47,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		
 		ErrorResponseDto errorResponseDto = new ErrorResponseDto(
 				webRequest.getDescription(false), 
-				HttpStatus.BAD_REQUEST, 
+				HttpStatus.ALREADY_REPORTED, 
 				exception.getMessage(), 
 				LocalDateTime.now()
 				);
